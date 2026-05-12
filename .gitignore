@@ -1,0 +1,30 @@
+# Sensitive files
+.claude/
+*.env
+*.pem
+id_rsa*
+id_ed25519*
+
+# Binary tools
+*.exe
+dist_release_tar*
+
+# Generated data
+dashboard/data/
+sessions/
+
+# Project-specific (not part of template)
+/tasks/
+/.kiro/agents/
+/.kiro/learned/LEARNED.md
+/.kiro/shared/SHARED-CONTEXT.md
+/.kiro/prompts/
+/.kiro/skills/lora-studio/
+/agora-internal/
+/agents/
+/scripts/
+/dashboard/
+/kw.sh
+/setup.sh
+/MEMORY.md
+/Report_0319.md

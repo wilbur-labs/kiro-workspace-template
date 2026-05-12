@@ -1,0 +1,43 @@
+{
+  "name": "example-agent",
+  "description": "Example agent for a project.",
+  "prompt": "# Example Agent\n\nYou are an agent responsible for <project-name>.\n\n## Rules\n\n1. Work in /path/to/project\n2. Follow existing code style\n3. Update RESUME.md after completing work",
+  "tools": [
+    "fs_read",
+    "fs_write",
+    "execute_bash",
+    "grep",
+    "glob",
+    "code",
+    "web_fetch"
+  ],
+  "allowedTools": [
+    "fs_read",
+    "grep",
+    "glob",
+    "code"
+  ],
+  "resources": [
+    "file://tasks/example/WORKFLOW.md",
+    "file://tasks/example/RESUME.md",
+    "skill://.kiro/skills/auto-learn.md",
+    "skill://.kiro/skills/output-templates.md"
+  ],
+  "hooks": {
+    "agentSpawn": [
+      {
+        "command": "cat ~/kiro-workspace/tasks/example/RESUME.md 2>/dev/null | head -40",
+        "description": "Load task state"
+      },
+      {
+        "command": "cat ~/kiro-workspace/.kiro/shared/SHARED-CONTEXT.md 2>/dev/null",
+        "description": "Load shared context"
+      },
+      {
+        "command": "cat ~/kiro-workspace/.kiro/learned/LEARNED.md 2>/dev/null",
+        "description": "Load learned memories"
+      }
+    ]
+  },
+  "welcomeMessage": "Example agent ready. What would you like to do?"
+}
