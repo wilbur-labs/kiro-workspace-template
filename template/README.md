@@ -8,6 +8,15 @@ Organize multiple AI agents, shared context, learned memories, skills, and task 
 
 ```
 .kiro/
+├── steering/         # AI-DLC workflow rules (loaded automatically)
+│   └── aws-aidlc-rules/
+│       └── core-workflow.md
+├── aws-aidlc-rule-details/  # Detailed rules referenced by core-workflow
+│   ├── common/
+│   ├── inception/
+│   ├── construction/
+│   ├── extensions/
+│   └── operations/
 ├── agents/           # Agent definitions (JSON)
 │   └── example.json
 ├── learned/          # Auto-accumulated experience
@@ -84,6 +93,21 @@ Each task has:
 ## Session Recovery
 
 Agents read `RESUME.md` on spawn via hooks. This ensures continuity across sessions without relying on conversation history.
+
+## AI-DLC Integration
+
+This template includes [AI-DLC (AI-Driven Development Life Cycle)](https://github.com/awslabs/aidlc-workflows) v0.1.8 rules.
+
+AI-DLC provides a structured three-phase workflow:
+- **Inception** — Requirements analysis, user stories, architecture design
+- **Construction** — Detailed design, code generation, testing
+- **Operations** — Deployment and monitoring
+
+Rules are in English but the agent communicates in Chinese (configured in `SHARED-CONTEXT.md`).
+
+To trigger the workflow, start your request with: **"Using AI-DLC, ..."**
+
+Verify rules are loaded: run `kiro-cli`, then `/context show`, and confirm entries for `.kiro/steering/aws-aidlc-rules`.
 
 ## License
 

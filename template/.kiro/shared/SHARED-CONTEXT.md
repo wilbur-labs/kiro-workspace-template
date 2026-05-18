@@ -20,6 +20,7 @@
 
 ## Preferences
 
-- Response language: <preferred-language>
+- Response language: 中文 (Chinese)
 - Code comments: <comment-language>
 - Commit messages: English
+- AI-DLC workflow interaction: 中文 (rules are in English, but all communication with user MUST be in Chinese)
