@@ -12,6 +12,7 @@ dist_release_tar*
 # Generated data
 dashboard/data/
 sessions/
+aidlc-docs/
 
 # Project-specific (not part of template)
 /tasks/

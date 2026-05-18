@@ -103,11 +103,26 @@ AI-DLC provides a structured three-phase workflow:
 - **Construction** — Detailed design, code generation, testing
 - **Operations** — Deployment and monitoring
 
-Rules are in English but the agent communicates in Chinese (configured in `SHARED-CONTEXT.md`).
+Rules are in English but all interaction is in Chinese (configured via `steering/locale-override.md`).
 
-To trigger the workflow, start your request with: **"Using AI-DLC, ..."**
+### Quick Start Prompt
 
-Verify rules are loaded: run `kiro-cli`, then `/context show`, and confirm entries for `.kiro/steering/aws-aidlc-rules`.
+```
+AI-DLC を使って、<your project description here>
+```
+
+The `locale-override.md` steering file ensures all documents, questions, and responses are in Chinese with JST timestamps.
+
+### Generated Artifacts
+
+AI-DLC generates working documents in `aidlc-docs/` (gitignored):
+- `aidlc-state.md` — Current workflow state and progress
+- `audit.md` — Timestamped work log
+- Requirements, user stories, design docs, etc.
+
+### Verify Setup
+
+Run `kiro-cli`, then `/context show`, and confirm entries for `.kiro/steering/aws-aidlc-rules` and `.kiro/steering/locale-override.md`.
 
 ## License
 
